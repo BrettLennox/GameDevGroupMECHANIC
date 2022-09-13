@@ -7,9 +7,17 @@ public class CubeHandler : MonoBehaviour
     public Rigidbody cubeRB;
     public BoxCollider boxCollider;
     public static bool hasCube;
-    public static GameObject expansiveCube;
+    public GameObject expansiveCube;
     public static GameObject cubeSpawn;
     public static GameObject newCube;
+
+    public List<GameObject> cubes;
+    public static CubeHandler SharedInstance;
+
+    private void Awake()
+    {
+        SharedInstance = this;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,18 +32,31 @@ public class CubeHandler : MonoBehaviour
    
 
 
-    public static void useCube()
+    public void UseCube(Transform transform)
     {
-        if (hasCube)
+        GameObject newCube = Instantiate(expansiveCube, transform.position, transform.rotation);
+        cubes.Add(newCube);
+        if(cubes.Count > 1)
         {
-            newCube = Instantiate(expansiveCube, cubeSpawn.transform.position, cubeSpawn.transform.rotation);
-            hasCube = false;
+            for(int i = 0; i < cubes.Count; i++)
+            {
+                Destroy(cubes[i].gameObject);
+                cubes.RemoveAt(i);
+            }
         }
-        else
-        {
-            Destroy(newCube, 0.1f);
-            hasCube = true;
-        }
+
+
+
+        //if (hasCube)
+        //{
+        //    newCube = Instantiate(expansiveCube, transform.position, transform.rotation);
+        //    hasCube = false;
+        //}
+        //else
+        //{
+        //    Destroy(newCube, 0.1f);
+        //    hasCube = true;
+        //}
 
     }
 

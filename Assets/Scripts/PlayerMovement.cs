@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
+        //float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, transform.position.y, 0f).normalized;
 
         if (direction.magnitude >= 0.1f)
         {
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-           // CubeHandler.useCube();
+            CubeHandler.SharedInstance.UseCube(this.transform);
         }
     }
 
