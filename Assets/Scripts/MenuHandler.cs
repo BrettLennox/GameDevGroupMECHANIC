@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-    public int sceneIndex;
-    public Button play;
-    public Button quit;
+  //  public ;
+  //  public Button play;
+ //   public Button quit;
    
    
    
-    public void ChangeScene()
+    public void ChangeScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
 

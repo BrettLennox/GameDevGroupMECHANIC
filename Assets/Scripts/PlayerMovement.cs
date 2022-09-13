@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject expansiveCube;
+   
     public float moveSpeed = 4;
     public float score;
     public float jumpSpeed =  4;
     public bool grounded = true;
-    public GameObject cubeSpawn;
+ 
     public Rigidbody rb;
-    public bool hasCube;
-    public GameObject newCube;
+    
+    
 
     //public float 
 
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            useCube();
+           // CubeHandler.useCube();
         }
     }
 
@@ -54,20 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     
 
-    public void useCube()
-    {
-        if (hasCube)
-        {
-            newCube = Instantiate(expansiveCube, cubeSpawn.transform.position, cubeSpawn.transform.rotation);
-            
-        }
-        else
-        {
-           DestroyImmediate( newCube);
-            hasCube = true;
-        }
-
-    }
+   
 
 
 }

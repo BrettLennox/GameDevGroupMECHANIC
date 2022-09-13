@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseHandler : MonoBehaviour
 {
-    public Button pauseButton;
-    public Text score;
-    public int sceneIndex;
-    public Button mainMenu;
-    public int scoreValue = 0;
+   // public Button pauseButton;
+ //   public Text score;
+   // private int sceneIndex;
+   // public Button mainMenu;
+    public static int scoreValue = 0;
     public Text scoreText;
 
-    public void ChangeScene()
+    public void ChangeScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
 
