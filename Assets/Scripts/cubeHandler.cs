@@ -32,9 +32,9 @@ public class CubeHandler : MonoBehaviour
    
 
 
-    public void UseCube(Transform transform)
+    public void UseCube(Vector3 position)
     {
-        GameObject newCube = Instantiate(expansiveCube, transform.position, transform.rotation);
+        GameObject newCube = Instantiate(expansiveCube, new Vector3(position.x,position.y, 0), transform.rotation);
         cubes.Add(newCube);
         if(cubes.Count > 1)
         {

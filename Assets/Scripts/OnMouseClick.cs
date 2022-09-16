@@ -17,12 +17,11 @@ public class OnMouseClick : MonoBehaviour
         }
     }
 
-    private Transform CalculateMousePosition()
+    private Vector3 CalculateMousePosition()
     {
         Vector3 mouseWorldPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPosition.z = 0f;
         Debug.Log(mouseWorldPosition);
-        //spawnPos.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, 0);
-        return spawnPos;
+        return mouseWorldPosition;
     }
 }
